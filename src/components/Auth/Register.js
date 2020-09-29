@@ -79,10 +79,16 @@ class Register extends React.Component {
     return (
       !username.length ||
       !email.length ||
-      password.length ||
-      passwordConfirmation.length
+      !password.length ||
+      !passwordConfirmation.length
     );
   };
+
+  handleImputError = (errors, inputName) =>{
+      errors.some(error =>
+        error.toLowerCase().includes(inputName)
+        )
+  }
 
   render() {
     const {
