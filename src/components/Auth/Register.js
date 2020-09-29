@@ -48,7 +48,12 @@ class Register extends React.Component {
       return true;
     }
   };
-  
+
+  isPasswordValid = ({password, passwordConfirmation}) =>{
+
+  }
+
+
 
   isFormEmpty = ({ username, email, password, passwordConfirmation }) => {
     return (
