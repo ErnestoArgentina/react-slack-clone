@@ -17,6 +17,7 @@ class Register extends React.Component {
     email: "",
     password: "",
     passwordConfirmation: "",
+    errors: [],
   };
 
   handleChange = (event) => {
@@ -37,7 +38,26 @@ class Register extends React.Component {
         });
   };
 
-  isFormValid() {}
+  isFormValid = () => {
+    if (this.isFormEmpty(this.state)) {
+      error = { message: "Fill in all fields" };
+      this.setState({ errors: errors.concat(error)});
+      return false
+    } else if (this.isPasswordValid(this.state)) {
+    } else {
+      return true;
+    }
+  };
+  
+
+  isFormEmpty = ({ username, email, password, passwordConfirmation }) => {
+    return (
+      !username.length ||
+      !email.length ||
+      password.length ||
+      passwordConfirmation.length
+    );
+  };
 
   render() {
     const { username, email, password, passwordConfirmation } = this.state;
