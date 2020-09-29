@@ -87,6 +87,8 @@ class Register extends React.Component {
   handleImputError = (errors, inputName) =>{
       errors.some(error =>
         error.toLowerCase().includes(inputName)
+        ? "error"
+        : ""
         )
   }
 
