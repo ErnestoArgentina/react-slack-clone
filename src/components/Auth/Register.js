@@ -86,7 +86,7 @@ class Register extends React.Component {
 
   handleImputError = (errors, inputName) =>{
       errors.some(error =>
-        error.toLowerCase().includes(inputName)
+        error.message.toLowerCase().includes(inputName)
         ? "error"
         : ""
         )
@@ -129,6 +129,7 @@ class Register extends React.Component {
                 placeholder="Email"
                 type="email"
                 onChange={this.handleChange}
+                className={this.handleImputError(errors,"email")}
               />
 
               <Form.Input
@@ -140,6 +141,7 @@ class Register extends React.Component {
                 placeholder="Password"
                 type="password"
                 onChange={this.handleChange}
+                className={this.handleImputError(errors,"password")}
               />
 
               <Form.Input
@@ -151,6 +153,7 @@ class Register extends React.Component {
                 placeholder="Password Confirmation"
                 type="password"
                 onChange={this.handleChange}
+                className={this.handleImputError(errors,"password")}
               />
 
               <Button disabled={loading} className={loading?'loading': ''} color="orange" fluid size="large">
