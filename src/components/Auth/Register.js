@@ -68,7 +68,7 @@ class Register extends React.Component {
   isPasswordValid = ({ password, passwordConfirmation }) => {
     if (password.length < 6 || passwordConfirmation.length < 6) {
       return false;
-    } else if (password != passwordConfirmation) {
+    } else if (password !== passwordConfirmation) {
       return false;
     } else {
       return true;
